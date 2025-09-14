@@ -1,0 +1,25 @@
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
+
+-- indentation
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
+
+-- set up toggleterm
+require("toggleterm").setup({
+  size = 10, -- height of horizontal terminals
+  open_mapping = [[<c-\>]], -- optional toggle key
+  hide_numbers = true, -- hide line numbers in terminal
+  start_in_insert = true, -- enter insert mode automatically
+  persist_size = true, -- remember size when toggling
+  direction = "horizontal", -- horizontal split
+  close_on_exit = true,
+})
+
+-- Autostart a terminal on Neovim launch
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    -- Create a new terminal and toggle it
+    local Terminal = require("toggleterm.terminal").Terminal
+    
