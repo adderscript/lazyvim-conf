@@ -28,9 +28,6 @@ return {
       hidden = false
     })
 
-    -- Keep buffer listed so it doesn't disappear
-    vim.api.nvim_buf_set_option(bottom_terminal.bufnr, "buflisted", true)
-
     -- Function to toggle terminal
     function _bottom_terminal_toggle()
       bottom_terminal:toggle()
